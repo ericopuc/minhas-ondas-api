@@ -4,6 +4,7 @@ from datetime import datetime, timedelta
 
 from model import Base
 from config import CACHE_MINUTOS
+from momento import agora_local
 
 
 class Previsao(Base):
@@ -27,11 +28,16 @@ class Previsao(Base):
     def atualiza(self, dados: dict):
         """ Substitui os dados armazenados por uma nova coleta. """
         self.dados = json.dumps(dados)
-        self.data_coleta = datetime.now()
+        # hora local do fuso configurado (o container Docker roda em UTC)
+        self.data_coleta = agora_local()
 
     def expirada(self) -> bool:
-        """ Indica se os dados armazenados já passaram do tempo de cache. """
-        return datetime.now() - self.data_coleta >= timedelta(minutes=CACHE_MINUTOS)
+        """ Indica se os dados armazenados já passaram do tempo de cache.
+            Uma coleta registrada "no futuro" (gravada em outro fuso) também
+            é considerada expirada. """
+        agora = agora_local()
+        return (self.data_coleta > agora or
+                agora - self.data_coleta >= timedelta(minutes=CACHE_MINUTOS))
 
     def expira_em(self) -> datetime:
         """ Momento em que os dados armazenados deixam de ser usados. """

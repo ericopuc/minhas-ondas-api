@@ -1,9 +1,9 @@
 from sqlalchemy import Column, String, Integer, Float, DateTime
 from sqlalchemy.orm import relationship
-from datetime import datetime
 from typing import Union
 
 from model import Base
+from momento import agora_local
 
 
 class Pico(Base):
@@ -21,7 +21,7 @@ class Pico(Base):
     swell_periodo_ideal = Column(Float, nullable=False)
     vento_direcao_ideal = Column(Float, nullable=False)
 
-    data_insercao = Column(DateTime, default=datetime.now)
+    data_insercao = Column(DateTime, default=agora_local)
 
     # Relacionamento 1:1 entre o pico e os dados coletados da API externa (cache).
     # Ao remover o pico, a previsão armazenada é removida junto.
