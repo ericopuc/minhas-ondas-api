@@ -9,8 +9,8 @@ Faz parte de um sistema com três módulos:
 
 | Módulo | Repositório |
 |--------|-------------|
-| Interface (Nuxt) | [minhas-ondas-front](https://github.com/<usuario>/minhas-ondas-front) |
-| API principal (este) | [minhas-ondas-api](https://github.com/<usuario>/minhas-ondas-api) |
+| Interface (Nuxt) | [minhas-ondas-front](https://github.com/ericopuc/minhas-ondas-front) |
+| API principal (este) | [minhas-ondas-api](https://github.com/ericopuc/minhas-ondas-api) |
 | API externa | [Open-Meteo](https://open-meteo.com/) — Marine API e Forecast API |
 
 ## Arquitetura
@@ -97,7 +97,7 @@ cada requisição, a mudança vale imediatamente, inclusive para os dados já ar
 **1. Clone o repositório e acesse a pasta do projeto:**
 
 ```bash
-git clone https://github.com/<usuario>/minhas-ondas-api.git
+git clone https://github.com/ericopuc/minhas-ondas-api.git
 cd minhas-ondas-api
 ```
 
