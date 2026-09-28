@@ -1,0 +1,15 @@
+.venv/
+venv/
+env/
+__pycache__/
+*.py[cod]
+database/
+*.sqlite3
+log/
+*.log
+.env
+.git/
+.gitignore
+.vscode/
+.cursor/
+docs/

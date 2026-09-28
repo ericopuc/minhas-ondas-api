@@ -1,0 +1,33 @@
+# Cache Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Ambiente virtual
+.venv/
+venv/
+env/
+ENV/
+
+# Variáveis de ambiente
+.env
+
+# Banco de dados SQLite (gerado em tempo de execução)
+database/
+*.sqlite3
+
+# Logs (gerados em tempo de execução)
+log/
+*.log
+
+# Cache de testes
+.pytest_cache/
+.cache
+
+# Configurações de editores/IDEs
+.vscode/
+.cursor/
+*.code*
+
+# Arquivos do sistema operacional
+.DS_Store
